@@ -5,6 +5,7 @@ from pydantic_ai.capabilities import Capability
 weather = Capability(
     id="weather",
     description="Get current weather for any location.",
+    defer_loading=True,
 )
 
 
@@ -25,6 +26,7 @@ async def get_weather(ctx: RunContext[None], location: str) -> str:
 stock_prices = Capability(
     id="stock_prices",
     description="Get current stock market prices and trading information.",
+    defer_loading=True,
 )
 
 
