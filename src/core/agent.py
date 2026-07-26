@@ -1,6 +1,7 @@
 from collections.abc import AsyncGenerator
 
 from pydantic_ai import Agent
+from pydantic_ai.capabilities import WebFetch, WebSearch
 from pydantic_ai.messages import ModelMessage
 
 from src.config import DEFAULT_LLM_MODEL, SYSTEM_PROMPT
@@ -9,7 +10,20 @@ from src.core.capabilities import stock_prices, weather
 chat_agent = Agent(
     model=DEFAULT_LLM_MODEL,
     system_prompt=SYSTEM_PROMPT,
-    capabilities=[weather, stock_prices],
+    capabilities=[
+        WebSearch(
+            id="web_search",
+            description="Search the web for current information.",
+            defer_loading=True,
+        ),
+        WebFetch(
+            id="web_fetch",
+            description="Fetch and read content from a URL.",
+            defer_loading=True,
+        ),
+        weather,
+        stock_prices,
+    ],
 )
 
 
