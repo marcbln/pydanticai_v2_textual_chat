@@ -11,9 +11,29 @@ Screen {
     content-align: center middle;
 }
 
+#main-container {
+    height: 1fr;
+}
+
+#sidebar {
+    width: 28;
+    display: none;
+    background: $panel;
+    border-right: solid $primary;
+    padding: 1;
+    overflow-y: auto;
+}
+
+#sidebar-title {
+    text-style: bold;
+    padding: 0 0 1 0;
+    border-bottom: solid $primary;
+    margin-bottom: 1;
+}
+
 #chat-container {
     height: 1fr;
-    width: 100%;
+    width: 1fr;
     background: $surface;
     border: tall $primary-muted;
     padding: 1 2;
