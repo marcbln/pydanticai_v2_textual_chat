@@ -1,14 +1,35 @@
 from collections.abc import AsyncGenerator
 
-from pydantic_ai import Agent
+import httpx
+from pydantic_ai import Agent, RunContext
 from pydantic_ai.messages import ModelMessage
 
 from src.config import DEFAULT_LLM_MODEL, SYSTEM_PROMPT
+
+
+async def get_weather(location: str) -> str:
+    """Get the current weather for a given location."""
+    url = f"https://wttr.in/{location}?format=%C+%t+%w+%h"
+    async with httpx.AsyncClient() as client:
+        resp = await client.get(url, timeout=10)
+        resp.raise_for_status()
+        return f"Weather in {location}: {resp.text.strip()}"
+
 
 chat_agent = Agent(
     model=DEFAULT_LLM_MODEL,
     system_prompt=SYSTEM_PROMPT,
 )
+
+
+@chat_agent.tool
+async def weather(ctx: RunContext[None], location: str) -> str:
+    """Get the current weather for a given location.
+
+    Args:
+        location: The city or region to get weather for.
+    """
+    return await get_weather(location)
 
 
 class AgentService:
