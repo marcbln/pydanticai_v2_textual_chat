@@ -19,3 +19,15 @@ __pycache__/
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Environment
+.env
+.venv/
+
+# Textual logs
+.tcss.log
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class

@@ -1,0 +1,23 @@
+[project]
+name = "pydanticai-v2-textual-chat"
+version = "0.1.0"
+description = "Interactive terminal chat UI powered by PydanticAI v2 and Textual"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic-ai>=2.18.0",
+    "python-dotenv>=1.2.2",
+    "pyyaml>=6.0.3",
+    "rich>=15.0.0",
+    "textual>=8.2.8",
+    "typer>=0.27.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=26.5.1",
+    "mypy>=2.3.0",
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+    "ruff>=0.16.0",
+]

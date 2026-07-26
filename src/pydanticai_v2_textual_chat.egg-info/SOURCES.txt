@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+src/__init__.py
+src/cli.py
+src/config.py
+src/core/__init__.py
+src/core/agent.py
+src/pydanticai_v2_textual_chat.egg-info/PKG-INFO
+src/pydanticai_v2_textual_chat.egg-info/SOURCES.txt
+src/pydanticai_v2_textual_chat.egg-info/dependency_links.txt
+src/pydanticai_v2_textual_chat.egg-info/requires.txt
+src/pydanticai_v2_textual_chat.egg-info/top_level.txt
+src/tui/__init__.py
+src/tui/app.py
